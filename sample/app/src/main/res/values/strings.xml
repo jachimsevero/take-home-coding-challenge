@@ -28,4 +28,5 @@
 
     <string name="value_pay">Pay %.2f</string>
     <string name="value_currency">PHP %.2f</string>
+    <string name="value_load">%.2f</string>
 </resources>

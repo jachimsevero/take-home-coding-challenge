@@ -60,7 +60,7 @@ fun MenuScreen(navController: NavHostController) {
                 )
 
                 Text(
-                    text = stringResource(id = R.string.value_currency, load),
+                    text = stringResource(id = R.string.value_load, load),
                     color = CoDarkBlue,
                     fontSize = 28.sp,
                     fontWeight = FontWeight.Bold,

@@ -93,7 +93,11 @@ fun TicketConfirmationScreen(navController: NavHostController) {
                     viewModel.showErrorDialog()
                 } else {
                     viewModel.updateLoad()
-                    navController.navigate(route = ScreenList.ResultsScreen.route)
+                    navController.navigate(route = ScreenList.ResultsScreen.route) {
+                        popUpTo(ScreenList.MenuScreen.route) {
+                            inclusive = false
+                        }
+                    }
                 }
             }
         }
