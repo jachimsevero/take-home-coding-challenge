@@ -25,7 +25,9 @@ import com.circlemove.sample.theme.CoDirtyWhite
 @Composable
 fun CustomDialog(
     showDialog: Boolean,
-    onDismiss: () -> Unit
+    onDismiss: () -> Unit,
+    title: String,
+    message: String
 ) {
     if (showDialog) {
         Dialog(
@@ -44,7 +46,7 @@ fun CustomDialog(
                     .padding(horizontal = 24.dp, vertical = 24.dp)
             ) {
                 Text(
-                    text = stringResource(id = R.string.dialog_soon_title),
+                    text = title,
                     style = TextStyle(
                         fontWeight = FontWeight.Bold,
                         fontSize = 24.sp
@@ -52,7 +54,7 @@ fun CustomDialog(
                     modifier = Modifier.padding(bottom = 8.dp)
                 )
                 Text(
-                    text = stringResource(id = R.string.dialog_soon_text),
+                    text = message,
                     style = TextStyle(
                         fontWeight = FontWeight.Normal,
                         fontSize = 16.sp

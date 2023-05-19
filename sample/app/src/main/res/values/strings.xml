@@ -14,10 +14,15 @@
     <string name="label_currency">PHP</string>
     <string name="label_ok">OK</string>
     <string name="label_proceed">Proceed</string>
+    <string name="label_vat">* Inclusive of VAT</string>
 
     <string name="dialog_soon_title">Coming Soon…</string>
     <string name="dialog_soon_text">We\'re working on incredible new features and improvements. Stay tuned for updates coming soon!</string>
 
-    <string name="value_pay">PAY %d</string>
-    <string name="value_currency">%.2f</string>
+    <string name="dialog_dest_title">Uh oh</string>
+    <string name="dialog_dest_text">Please select different destinations…</string>
+    <string name="dialog_balance_text">Your account balance is insufficient. Please reload immediately</string>
+
+    <string name="value_pay">Pay %.2f</string>
+    <string name="value_currency">PHP %.2f</string>
 </resources>

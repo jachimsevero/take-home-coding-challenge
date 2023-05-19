@@ -1,16 +1,117 @@
 package com.circlemove.sample.presentation.ui.ticketconfirmation
 
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.Divider
+import androidx.compose.material.Scaffold
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.circlemove.sample.presentation.ui.ticketconfirmation.TicketConfirmationViewModel
+import androidx.navigation.NavHostController
+import com.circlemove.sample.R
+import com.circlemove.sample.presentation.ScreenList
+import com.circlemove.sample.presentation.components.AppBar
+import com.circlemove.sample.presentation.components.CustomButton
+import com.circlemove.sample.presentation.components.CustomDialog
+import com.circlemove.sample.presentation.components.CustomText
+import com.circlemove.sample.theme.CoDarkBlue
+import com.circlemove.sample.theme.CoGray
 
 @Composable
-fun TicketConfirmationScreen() {
-    val confirmationViewModel: TicketConfirmationViewModel = hiltViewModel()
-    val model by confirmationViewModel.modelFlow.collectAsState()
+fun TicketConfirmationScreen(navController: NavHostController) {
+    val viewModel: TicketConfirmationViewModel = hiltViewModel()
+    val model by viewModel.modelFlow.collectAsState()
+    val load by viewModel.loadValue.collectAsState()
 
-    Text(text = model.fare.toString())
+    Scaffold(topBar = {
+        AppBar(title = stringResource(id = R.string.title_confirm), onBackPressed = {
+            navController.popBackStack()
+        })
+    }, content = {
+        Column(
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .weight(1f)
+                    .padding(12.dp),
+                verticalArrangement = Arrangement.Top,
+                horizontalAlignment = Alignment.Start,
+            ) {
+                CustomText(text = stringResource(id = R.string.label_board), CoGray)
+
+                CustomText(text = model.boardAtName, CoDarkBlue, 36.sp)
+
+                CustomText(
+                    text = stringResource(id = R.string.label_alight),
+                    color = CoGray,
+                    paddingTop = 8.dp
+                )
+
+                CustomText(text = model.alightAtName, CoDarkBlue, 36.sp)
+
+                CustomText(
+                    text = stringResource(id = R.string.label_fare),
+                    color = CoGray,
+                    paddingTop = 24.dp
+                )
+
+                CustomText(
+                    text = stringResource(
+                        R.string.value_currency,
+                        model.fare
+                    ), CoDarkBlue, 36.sp
+                )
+
+                Divider(
+                    color = CoDarkBlue,
+                    thickness = 2.dp,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 4.dp)
+                )
+
+                Box(
+                    modifier = Modifier.fillMaxWidth(),
+                    contentAlignment = Alignment.CenterEnd
+                ) {
+                    CustomText(
+                        text = stringResource(R.string.label_vat),
+                        color = Color.Red,
+                        textSize = 16.sp,
+                    )
+                }
+            }
+
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 16.dp)
+            ) {
+                CustomButton(
+                    onClick = {
+                        if (model.fare > load) {
+                            viewModel.showErrorDialog()
+                        } else {
+                            viewModel.updateLoad()
+                            navController.navigate(route = ScreenList.ResultsScreen.route)
+                        }
+                    },
+                    text = stringResource(id = R.string.value_pay, model.fare)
+                )
+            }
+        }
+    })
+
+    CustomDialog(
+        showDialog = viewModel.showDialog,
+        onDismiss = { viewModel.onDismissDialog() },
+        title = stringResource(id = R.string.dialog_dest_title),
+        message = stringResource(id = R.string.dialog_balance_text)
+    )
 }

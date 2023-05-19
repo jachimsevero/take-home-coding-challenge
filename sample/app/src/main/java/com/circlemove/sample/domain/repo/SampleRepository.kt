@@ -10,4 +10,6 @@ interface SampleRepository {
     fun setBoardAt(boardAt: Int)
 
     fun setAlightAt(alightAt: Int)
+
+    fun setLoad(load: Float)
 }

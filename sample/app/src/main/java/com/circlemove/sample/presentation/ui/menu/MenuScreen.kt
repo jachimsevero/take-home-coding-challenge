@@ -25,13 +25,11 @@ fun MenuScreen(navController: NavHostController) {
     val viewModel: MenuViewModel = hiltViewModel()
     val load by viewModel.loadValue.collectAsState()
 
-
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        var showDialog by remember { mutableStateOf(false) }
 
         Image(
             painter = painterResource(R.drawable.app_logo),
@@ -72,7 +70,7 @@ fun MenuScreen(navController: NavHostController) {
 
         CustomButton(
             onClick = {
-                showDialog = true
+                viewModel.showDialog = true
             },
             text = stringResource(id = R.string.label_buy_load)
         )
@@ -86,14 +84,16 @@ fun MenuScreen(navController: NavHostController) {
 
         CustomButton(
             onClick = {
-                showDialog = true
+                viewModel.showErrorDialog()
             },
             text = stringResource(id = R.string.label_send_money)
         )
 
         CustomDialog(
-            showDialog = showDialog,
-            onDismiss = { showDialog = false }
+            showDialog = viewModel.showDialog,
+            onDismiss = { viewModel.onDismissDialog() },
+            title = stringResource(id = R.string.dialog_soon_title),
+            message = stringResource(id = R.string.dialog_soon_text)
         )
     }
 }

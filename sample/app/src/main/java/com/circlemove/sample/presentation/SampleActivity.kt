@@ -5,8 +5,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.SavedStateViewModelFactory
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -34,13 +32,9 @@ class SampleActivity : ComponentActivity() {
             Theme {
                 val navController = rememberNavController()
 
-//                NavHost(navController, startDestination = ScreenList.SplashScreen.route) {
-                NavHost(navController, startDestination = ScreenList.BuyTicketScreen.route) {
+                NavHost(navController, startDestination = ScreenList.MenuScreen.route) {
+//                NavHost(navController, startDestination = ScreenList.TicketConfirmationScreen.route) {
 //                NavHost(navController, startDestination = "testing") {
-                    composable(route = ScreenList.SplashScreen.route) {
-                        Splash(navController)
-                    }
-
                     composable(route = ScreenList.MenuScreen.route) {
                         MenuScreen(navController)
                     }
@@ -50,11 +44,11 @@ class SampleActivity : ComponentActivity() {
                     }
 
                     composable(route = ScreenList.TicketConfirmationScreen.route) {
-                        TicketConfirmationScreen()
+                        TicketConfirmationScreen(navController)
                     }
 
                     composable(route = ScreenList.ResultsScreen.route) {
-                        ResultsScreen()
+                        ResultsScreen(navController)
                     }
 
                     //for testing only

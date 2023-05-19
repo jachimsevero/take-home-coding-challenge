@@ -6,8 +6,9 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
 internal class SampleRepositoryImpl : SampleRepository {
-    override val loadValue: StateFlow<Float>
-        get() = MutableStateFlow(2000f)
+
+    private val _loadValue = MutableStateFlow(500f)
+    override val loadValue: StateFlow<Float> = _loadValue
 
     override val modelFlow = MutableStateFlow(
         SampleModel(
@@ -50,6 +51,10 @@ internal class SampleRepositoryImpl : SampleRepository {
             alightAt = alightAt,
             fareMatrix = model.fareMatrix
         )
+    }
+
+    override fun setLoad(load: Float) {
+        _loadValue.value = load
     }
 
     private fun createFareMatrix(): Map<Pair<Int, Int>, Float> {
