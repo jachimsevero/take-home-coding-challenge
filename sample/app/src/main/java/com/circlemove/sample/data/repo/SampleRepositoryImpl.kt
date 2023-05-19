@@ -1,9 +1,14 @@
-package com.circlemove.sample.repo
+package com.circlemove.sample.data.repo
 
-import com.circlemove.sample.models.SampleModel
+import com.circlemove.sample.data.models.SampleModel
+import com.circlemove.sample.domain.repo.SampleRepository
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 
 internal class SampleRepositoryImpl : SampleRepository {
+    override val loadValue: StateFlow<Float>
+        get() = MutableStateFlow(2000f)
+
     override val modelFlow = MutableStateFlow(
         SampleModel(
             busStops = listOf(

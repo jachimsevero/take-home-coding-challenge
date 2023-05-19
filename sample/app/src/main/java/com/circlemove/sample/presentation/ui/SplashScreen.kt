@@ -1,4 +1,4 @@
-package com.circlemove.sample.ui
+package com.circlemove.sample.presentation.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -8,7 +8,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -16,6 +15,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.circlemove.sample.R
+import com.circlemove.sample.presentation.ScreenList
+import com.circlemove.sample.theme.CoDarkBlue
+import com.circlemove.sample.theme.CoDirtyWhite
 import kotlinx.coroutines.delay
 
 @Composable
@@ -28,7 +30,7 @@ fun Splash(navController: NavHostController) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(color = colorResource(R.color.dirty_white))
+                .background(CoDirtyWhite)
         ) {
             Column(
                 modifier = Modifier
@@ -45,7 +47,7 @@ fun Splash(navController: NavHostController) {
 
                 Text(
                     text = stringResource(id = R.string.app_name),
-                    color = colorResource(id = R.color.dark_blue),
+                    color = CoDarkBlue,
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier
@@ -55,8 +57,8 @@ fun Splash(navController: NavHostController) {
                 LaunchedEffect(Unit) {
                     delay(timeMillis = 3000L)
 
-                    navController.navigate(route = "my_favorite_anime") {
-                        popUpTo(route = "splash") {
+                    navController.navigate(route = ScreenList.MenuScreen.route) {
+                        popUpTo(route = ScreenList.SplashScreen.route) {
                             inclusive = true
                         }
                     }

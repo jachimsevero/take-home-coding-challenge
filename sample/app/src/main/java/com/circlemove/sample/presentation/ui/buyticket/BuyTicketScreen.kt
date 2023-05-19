@@ -1,4 +1,4 @@
-package com.circlemove.sample.ui
+package com.circlemove.sample.presentation.ui.buyticket
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -20,18 +20,18 @@ import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.circlemove.sample.R
-import com.circlemove.sample.vm.DrStoneViewModel
+import com.circlemove.sample.presentation.vm.DrStoneViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 @Composable
-fun DrStone(navController: NavHostController) {
+fun BuyTicketScreen(navController: NavHostController) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         val context = LocalContext.current
-        val title = stringResource(id = R.string.title)
+        val title = stringResource(id = R.string.dialog_soon_title)
 
         val viewModel: DrStoneViewModel = hiltViewModel()
         val model by viewModel.modelFlow.collectAsState()

@@ -1,4 +1,4 @@
-package com.circlemove.sample
+package com.circlemove.sample.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -7,10 +7,9 @@ import androidx.compose.material.Text
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.circlemove.sample.ui.DrStone
-import com.circlemove.sample.ui.MyFavoriteAnime
-import com.circlemove.sample.ui.OnePunchMan
-import com.circlemove.sample.ui.Splash
+import com.circlemove.sample.presentation.ui.*
+import com.circlemove.sample.presentation.ui.buyticket.BuyTicketScreen
+import com.circlemove.sample.presentation.ui.menu.MenuScreen
 import com.circlemove.sample.theme.Theme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -23,17 +22,17 @@ class SampleActivity : ComponentActivity() {
             Theme {
                 val navController = rememberNavController()
 
-                NavHost(navController, startDestination = "splash") {
-                    composable(route = "splash") {
+                NavHost(navController, startDestination = ScreenList.SplashScreen.route) {
+                    composable(route = ScreenList.SplashScreen.route) {
                         Splash(navController)
                     }
 
-                    composable(route = "my_favorite_anime") {
-                        MyFavoriteAnime(navController)
+                    composable(route = ScreenList.MenuScreen.route) {
+                        MenuScreen(navController)
                     }
 
-                    composable(route = "dr_stone") {
-                        DrStone(navController)
+                    composable(route = ScreenList.BuyTicketScreen.route) {
+                        BuyTicketScreen(navController)
                     }
 
                     composable(route = "one_punch_man") {

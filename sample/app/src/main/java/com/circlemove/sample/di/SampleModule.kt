@@ -1,7 +1,7 @@
 package com.circlemove.sample.di
 
-import com.circlemove.sample.repo.SampleRepository
-import com.circlemove.sample.repo.SampleRepositoryImpl
+import com.circlemove.sample.domain.repo.SampleRepository
+import com.circlemove.sample.data.repo.SampleRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -1,4 +1,4 @@
-package com.circlemove.sample.models
+package com.circlemove.sample.data.models
 
 data class SampleModel(
     val busStops: List<String>,
