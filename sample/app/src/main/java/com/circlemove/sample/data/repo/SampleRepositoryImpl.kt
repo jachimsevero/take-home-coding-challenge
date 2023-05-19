@@ -12,25 +12,21 @@ internal class SampleRepositoryImpl : SampleRepository {
     override val modelFlow = MutableStateFlow(
         SampleModel(
             busStops = listOf(
-                "bus stop 1",
-                "bus stop 2",
-                "bus stop 3",
+                "Valenzuela",
+                "Marilao",
+                "Bocaue",
+                "Balagtas",
+                "Guiguinto",
+                "Plaridel",
+                "Apalit",
+                "San Fernando",
+                "Mexico"
             ),
 
             boardAt = 0,
-            alightAt = 2,
+            alightAt = 8,
 
-            fareMatrix = mapOf(
-                (0 to 0) to "0.00",
-                (0 to 1) to "1.00",
-                (0 to 2) to "2.00",
-                (1 to 0) to "1.00",
-                (1 to 1) to "0.00",
-                (1 to 2) to "1.00",
-                (2 to 0) to "2.00",
-                (2 to 1) to "1.00",
-                (2 to 2) to "0.00",
-            )
+            fareMatrix = createFareMatrix()
         )
     )
 
@@ -54,5 +50,26 @@ internal class SampleRepositoryImpl : SampleRepository {
             alightAt = alightAt,
             fareMatrix = model.fareMatrix
         )
+    }
+
+    private fun createFareMatrix(): Map<Pair<Int, Int>, Float> {
+        val fareMatrix = mutableMapOf<Pair<Int, Int>, Float>()
+
+        for (row in 0..9) {
+            for (column in 0..9) {
+                val fare = calculateFare(row, column)
+                fareMatrix[row to column] = fare
+            }
+        }
+
+        return fareMatrix
+    }
+
+    private fun calculateFare(row: Int, column: Int): Float {
+        return when {
+            row == column -> 0f
+            row < column -> (column - row).toFloat() * 6f * 3.5f
+            else -> (row - column).toFloat() * 6f * 3.5f
+        }
     }
 }

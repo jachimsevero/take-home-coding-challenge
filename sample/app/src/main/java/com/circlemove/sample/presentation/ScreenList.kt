@@ -4,6 +4,6 @@ sealed class ScreenList(val route: String) {
     object SplashScreen: ScreenList("splash")
     object MenuScreen: ScreenList("menu_screen")
     object BuyTicketScreen: ScreenList("buy_ticket")
-    object ConfirmTicketScreen : ScreenList("confirm_ticket")
-    object ConfirmationScreen: ScreenList("confirmation")
+    object TicketConfirmationScreen : ScreenList("confirm_ticket")
+    object ResultsScreen: ScreenList("results")
 }

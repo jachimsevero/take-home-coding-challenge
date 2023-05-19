@@ -4,7 +4,7 @@ data class SampleModel(
     val busStops: List<String>,
     val boardAt: Int,
     val alightAt: Int,
-    val fareMatrix: Map<Pair<Int, Int>, String>,
+    val fareMatrix: Map<Pair<Int, Int>, Float>,
 ) {
     val boardAtName: String
         get() = busStops[boardAt]
@@ -12,7 +12,7 @@ data class SampleModel(
     val alightAtName: String
         get() = busStops[alightAt]
 
-    val fare: String
+    val fare: Float
         get() = requireNotNull(
             fareMatrix[boardAt to alightAt]
         )

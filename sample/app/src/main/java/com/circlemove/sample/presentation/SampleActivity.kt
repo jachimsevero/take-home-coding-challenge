@@ -3,13 +3,14 @@ package com.circlemove.sample.presentation
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.material.Text
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.circlemove.sample.presentation.ui.*
 import com.circlemove.sample.presentation.ui.buyticket.BuyTicketScreen
 import com.circlemove.sample.presentation.ui.menu.MenuScreen
+import com.circlemove.sample.presentation.ui.results.ResultsScreen
+import com.circlemove.sample.presentation.ui.ticketconfirmation.TicketConfirmationScreen
 import com.circlemove.sample.theme.Theme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -22,7 +23,9 @@ class SampleActivity : ComponentActivity() {
             Theme {
                 val navController = rememberNavController()
 
-                NavHost(navController, startDestination = ScreenList.SplashScreen.route) {
+//                NavHost(navController, startDestination = ScreenList.SplashScreen.route) {
+                NavHost(navController, startDestination = ScreenList.BuyTicketScreen.route) {
+//                NavHost(navController, startDestination = "testing") {
                     composable(route = ScreenList.SplashScreen.route) {
                         Splash(navController)
                     }
@@ -35,12 +38,17 @@ class SampleActivity : ComponentActivity() {
                         BuyTicketScreen(navController)
                     }
 
-                    composable(route = "one_punch_man") {
-                        OnePunchMan()
+                    composable(route = ScreenList.TicketConfirmationScreen.route) {
+                        TicketConfirmationScreen()
                     }
 
-                    composable(route = "done") {
-                        Text(text = "done")
+                    composable(route = ScreenList.ResultsScreen.route) {
+                        ResultsScreen()
+                    }
+
+                    //for testing only
+                    composable(route = "testing") {
+                        TestCompose()
                     }
                 }
             }

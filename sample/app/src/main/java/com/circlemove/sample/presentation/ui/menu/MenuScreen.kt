@@ -16,14 +16,13 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.circlemove.sample.R
 import com.circlemove.sample.presentation.ScreenList
-import com.circlemove.sample.presentation.ui.components.CustomButton
-import com.circlemove.sample.presentation.ui.components.CustomDialog
-import com.circlemove.sample.presentation.vm.OnePunchManViewModel
+import com.circlemove.sample.presentation.components.CustomButton
+import com.circlemove.sample.presentation.components.CustomDialog
 import com.circlemove.sample.theme.CoDarkBlue
 
 @Composable
 fun MenuScreen(navController: NavHostController) {
-    val viewModel: OnePunchManViewModel = hiltViewModel()
+    val viewModel: MenuViewModel = hiltViewModel()
     val load by viewModel.loadValue.collectAsState()
 
 

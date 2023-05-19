@@ -1,4 +1,4 @@
-package com.circlemove.sample.presentation.ui.components
+package com.circlemove.sample.presentation.components
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth

@@ -1,4 +1,4 @@
-package com.circlemove.sample.presentation.ui.components
+package com.circlemove.sample.presentation.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -10,7 +10,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -21,7 +20,6 @@ import androidx.compose.ui.window.DialogProperties
 import com.circlemove.sample.R
 import com.circlemove.sample.theme.CoDarkBlue
 import com.circlemove.sample.theme.CoDirtyWhite
-import com.circlemove.sample.theme.CoOceanBlue
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
