@@ -1,7 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Circle Move Sample</string>
-    <string name="title">title</string>
-    <string name="message">message</string>
-    <string name="ok">OK</string>
+    <string name="app_name">CircleTranspo</string>
+
+    <string name="title_buy">Buy Ticket</string>
+    <string name="title_confirm">Confirm Ticket</string>
+
+    <string name="label_buy_load">Buy Load</string>
+    <string name="label_buy_ticket">Buy Ticket</string>
+    <string name="label_send_money">Send Money</string>
+    <string name="label_board">Boarding at</string>
+    <string name="label_alight">Alighting at</string>
+    <string name="label_fare">Fare</string>
+    <string name="label_currency">PHP</string>
+    <string name="label_ok">OK</string>
+    <string name="label_proceed">Proceed</string>
+    <string name="label_vat">* Inclusive of VAT</string>
+    <string name="label_done">Done!</string>
+    <string name="label_back">Back to Main Menu</string>
+    <string name="label_paid">Paid</string>
+
+    <string name="dialog_soon_title">Coming Soon…</string>
+    <string name="dialog_soon_text">We\'re working on incredible new features and improvements. Stay tuned for updates coming soon!</string>
+
+    <string name="dialog_dest_title">Uh oh</string>
+    <string name="dialog_dest_text">Please select different destinations…</string>
+    <string name="dialog_balance_text">Your account balance is insufficient. Please reload immediately</string>
+
+    <string name="value_pay">Pay %.2f</string>
+    <string name="value_currency">PHP %.2f</string>
+    <string name="value_load">%.2f</string>
 </resources>
