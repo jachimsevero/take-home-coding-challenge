@@ -1,14 +1,21 @@
 package com.circlemove.sample.ui
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.circlemove.sample.R
 import kotlinx.coroutines.delay
 
 @Composable
@@ -18,15 +25,41 @@ fun Splash(navController: NavHostController) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(text = "wait for 5 seconds")
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(color = colorResource(R.color.dirty_white))
+        ) {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(16.dp), // Adjust the padding as needed
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Image(
+                    painter = painterResource(R.drawable.app_logo),
+                    contentDescription = null,
+                    modifier = Modifier.size(200.dp)
+                )
 
-        // Go to my favorite anime automatically after 10 seconds
-        LaunchedEffect(Unit) {
-            delay(timeMillis = 5000L)
+                Text(
+                    text = stringResource(id = R.string.app_name),
+                    color = colorResource(id = R.color.dark_blue),
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier
+                        .padding(horizontal = 8.dp)
+                )
 
-            navController.navigate(route = "my_favorite_anime") {
-                popUpTo(route = "splash") {
-                    inclusive = true
+                LaunchedEffect(Unit) {
+                    delay(timeMillis = 3000L)
+
+                    navController.navigate(route = "my_favorite_anime") {
+                        popUpTo(route = "splash") {
+                            inclusive = true
+                        }
+                    }
                 }
             }
         }
