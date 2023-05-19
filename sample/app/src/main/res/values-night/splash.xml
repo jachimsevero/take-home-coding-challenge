@@ -1,0 +1,7 @@
+<resources>
+    <style name="Theme.SplashApp" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/gray</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_logo</item>
+        <item name="postSplashScreenTheme">@style/Theme.CircleTranspo</item>
+    </style>
+</resources>

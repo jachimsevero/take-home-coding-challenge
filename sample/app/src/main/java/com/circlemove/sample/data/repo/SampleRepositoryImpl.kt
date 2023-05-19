@@ -55,8 +55,8 @@ internal class SampleRepositoryImpl : SampleRepository {
     private fun createFareMatrix(): Map<Pair<Int, Int>, Float> {
         val fareMatrix = mutableMapOf<Pair<Int, Int>, Float>()
 
-        for (row in 0..9) {
-            for (column in 0..9) {
+        for (row in 0..8) {
+            for (column in 0..8) {
                 val fare = calculateFare(row, column)
                 fareMatrix[row to column] = fare
             }
