@@ -13,7 +13,8 @@
         <activity
             android:name=".presentation.SampleActivity"
             android:exported="true"
-            android:theme="@style/Theme.SplashApp">
+            android:theme="@style/Theme.SplashApp"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

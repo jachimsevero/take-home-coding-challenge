@@ -15,6 +15,9 @@
     <string name="label_ok">OK</string>
     <string name="label_proceed">Proceed</string>
     <string name="label_vat">* Inclusive of VAT</string>
+    <string name="label_done">Done!</string>
+    <string name="label_back">Back to Main Menu</string>
+    <string name="label_paid">Paid</string>
 
     <string name="dialog_soon_title">Coming Soon…</string>
     <string name="dialog_soon_text">We\'re working on incredible new features and improvements. Stay tuned for updates coming soon!</string>

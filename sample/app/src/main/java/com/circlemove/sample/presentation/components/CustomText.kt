@@ -22,12 +22,13 @@ fun CustomText(
     paddingBottom: Dp = 0.dp,
     paddingStart: Dp = 8.dp,
     paddingEnd: Dp = 8.dp,
+    fontWeight: FontWeight = FontWeight.Bold
 ) {
     Text(
         text = text,
         color = color,
         fontSize = textSize,
-        fontWeight = FontWeight.Bold,
+        fontWeight = fontWeight,
         modifier = Modifier.padding(top = paddingTop, bottom = paddingBottom, start = paddingStart, end = paddingEnd),
         maxLines = 1,
         overflow = TextOverflow.Ellipsis,

@@ -1,5 +1,6 @@
 package com.circlemove.sample.presentation.ui.ticketconfirmation
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Divider
 import androidx.compose.material.Scaffold
@@ -14,10 +15,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.circlemove.sample.R
 import com.circlemove.sample.presentation.ScreenList
-import com.circlemove.sample.presentation.components.AppBar
-import com.circlemove.sample.presentation.components.CustomButton
-import com.circlemove.sample.presentation.components.CustomDialog
-import com.circlemove.sample.presentation.components.CustomText
+import com.circlemove.sample.presentation.components.*
 import com.circlemove.sample.theme.CoDarkBlue
 import com.circlemove.sample.theme.CoGray
 
@@ -33,7 +31,9 @@ fun TicketConfirmationScreen(navController: NavHostController) {
         })
     }, content = {
         Column(
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(Color.White)
         ) {
             Column(
                 modifier = Modifier
@@ -88,22 +88,13 @@ fun TicketConfirmationScreen(navController: NavHostController) {
                 }
             }
 
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(bottom = 16.dp)
-            ) {
-                CustomButton(
-                    onClick = {
-                        if (model.fare > load) {
-                            viewModel.showErrorDialog()
-                        } else {
-                            viewModel.updateLoad()
-                            navController.navigate(route = ScreenList.ResultsScreen.route)
-                        }
-                    },
-                    text = stringResource(id = R.string.value_pay, model.fare)
-                )
+            BottomButton(text = stringResource(id = R.string.value_pay, model.fare)) {
+                if (model.fare > load) {
+                    viewModel.showErrorDialog()
+                } else {
+                    viewModel.updateLoad()
+                    navController.navigate(route = ScreenList.ResultsScreen.route)
+                }
             }
         }
     })

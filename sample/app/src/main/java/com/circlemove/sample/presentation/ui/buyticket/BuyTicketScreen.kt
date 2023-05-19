@@ -1,10 +1,12 @@
 package com.circlemove.sample.presentation.ui.buyticket
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -31,7 +33,9 @@ fun BuyTicketScreen(navController: NavHostController) {
         })
     }, content = {
         Column(
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(Color.White)
         ) {
             Column(
                 modifier = Modifier
@@ -80,21 +84,12 @@ fun BuyTicketScreen(navController: NavHostController) {
                 )
             }
 
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(bottom = 16.dp)
-            ) {
-                CustomButton(
-                    onClick = {
-                        if (model.alightAt == model.boardAt) {
-                            viewModel.showErrorDialog()
-                        } else {
-                            navController.navigate(route = ScreenList.TicketConfirmationScreen.route)
-                        }
-                    },
-                    text = stringResource(id = R.string.label_proceed)
-                )
+            BottomButton(text = stringResource(id = R.string.label_proceed)) {
+                if (model.alightAt == model.boardAt) {
+                    viewModel.showErrorDialog()
+                } else {
+                    navController.navigate(route = ScreenList.TicketConfirmationScreen.route)
+                }
             }
         }
     })

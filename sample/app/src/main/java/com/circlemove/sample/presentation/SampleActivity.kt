@@ -33,8 +33,6 @@ class SampleActivity : ComponentActivity() {
                 val navController = rememberNavController()
 
                 NavHost(navController, startDestination = ScreenList.MenuScreen.route) {
-//                NavHost(navController, startDestination = ScreenList.TicketConfirmationScreen.route) {
-//                NavHost(navController, startDestination = "testing") {
                     composable(route = ScreenList.MenuScreen.route) {
                         MenuScreen(navController)
                     }
@@ -49,11 +47,6 @@ class SampleActivity : ComponentActivity() {
 
                     composable(route = ScreenList.ResultsScreen.route) {
                         ResultsScreen(navController)
-                    }
-
-                    //for testing only
-                    composable(route = "testing") {
-                        TestCompose()
                     }
                 }
             }

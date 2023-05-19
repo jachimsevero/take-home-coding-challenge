@@ -32,7 +32,8 @@ fun CustomTextFields(
             IconButton(onClick = onEditClick) {
                 Icon(
                     Icons.Default.Edit,
-                    contentDescription = null
+                    contentDescription = null,
+                    tint = CoDarkBlue
                 )
             }
         },
