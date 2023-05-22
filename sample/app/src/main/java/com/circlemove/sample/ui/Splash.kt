@@ -3,6 +3,7 @@ package com.circlemove.sample.ui
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -18,13 +19,12 @@ fun Splash(navController: NavHostController) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(text = "wait for 5 seconds")
+        CircularProgressIndicator()
 
-        // Go to my favorite anime automatically after 10 seconds
         LaunchedEffect(Unit) {
-            delay(timeMillis = 5000L)
+            delay(timeMillis = 3000L)
 
-            navController.navigate(route = "my_favorite_anime") {
+            navController.navigate(route = "menu") {
                 popUpTo(route = "splash") {
                     inclusive = true
                 }

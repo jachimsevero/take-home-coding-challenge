@@ -7,15 +7,12 @@ import androidx.compose.material.Text
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.circlemove.sample.ui.DrStone
-import com.circlemove.sample.ui.MyFavoriteAnime
-import com.circlemove.sample.ui.OnePunchMan
-import com.circlemove.sample.ui.Splash
 import com.circlemove.sample.theme.Theme
+import com.circlemove.sample.ui.*
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SampleActivity : ComponentActivity() {
+class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -28,20 +25,20 @@ class SampleActivity : ComponentActivity() {
                         Splash(navController)
                     }
 
-                    composable(route = "my_favorite_anime") {
-                        MyFavoriteAnime(navController)
+                    composable(route = "menu") {
+                        Menu(navController)
                     }
 
-                    composable(route = "dr_stone") {
-                        DrStone(navController)
+                    composable(route = "buy_ticket") {
+                        BuyTicket(navController)
                     }
 
-                    composable(route = "one_punch_man") {
-                        OnePunchMan()
+                    composable(route = "confirm_ticket") {
+                        ConfirmTicket(navController)
                     }
 
-                    composable(route = "done") {
-                        Text(text = "done")
+                    composable(route = "ticket") {
+                        TicketLayout(navController)
                     }
                 }
             }

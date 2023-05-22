@@ -1,7 +1,7 @@
 package com.circlemove.sample.di
 
-import com.circlemove.sample.repo.SampleRepository
-import com.circlemove.sample.repo.SampleRepositoryImpl
+import com.circlemove.sample.repo.StationRepository
+import com.circlemove.sample.repo.StationRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -10,8 +10,8 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object SampleModule {
+object StationModule {
     @Provides
     @Singleton
-    fun provideSampleRepository(): SampleRepository = SampleRepositoryImpl()
+    fun provideStationRepository(): StationRepository = StationRepositoryImpl()
 }
