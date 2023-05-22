@@ -4,4 +4,7 @@
     <string name="title">title</string>
     <string name="message">message</string>
     <string name="ok">OK</string>
+    <string name="station">Station</string>
+    <string name="coming_soon">Coming soon</string>
+    <string name="coming_soon_message">We\'re excited to show this! \nWe\'ll tell you when it\'s ready</string>
 </resources>
